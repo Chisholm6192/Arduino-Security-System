@@ -1,11 +1,10 @@
-//Grade 12 Computer Engineering Culmianting Project
 //January 31st 2022
 
 #include <IRremote.h> //include infared remote library
 #include <LiquidCrystal_I2C.h>  //include lcd sceen library
 #include <Wire.h>
 
-//defining integers for inputs
+//defining pins for inputs
 int trigPin = 13; 
 int echoPin = 12; 
 long duration; 
@@ -13,7 +12,7 @@ int distance;
 int buzzer = 3; 
 int IR_RECEIVE_PIN = 2; 
 IRrecv ir_receiver(IR_RECEIVE_PIN); 
-LiquidCrystal_I2C lcd (0x27,20,4); //set dimensions for lcd screeb
+LiquidCrystal_I2C lcd (0x27,20,4); //set dimensions for lcd screen
 
 void setup()
 {
@@ -45,7 +44,7 @@ void loop()
   Serial.println(distance); //print serial data from sensor
 
   
-  if (distance < 150) //if sensor detects something less than 150 millameters away
+  if (distance < 150) //if sensor detects something less than 150 millimeters away
   {
     digitalWrite(11, HIGH); //turn LED on
     lcd.setCursor(0,0);
@@ -53,7 +52,7 @@ void loop()
     digitalWrite(buzzer, HIGH); //turn buzzer on
   }
   
-   if (distance > 150)  //if sensor detects somethign but is greater than 150 millameters away
+   if (distance > 150)  //if sensor detects somethign but is greater than 150 millimeters away
     {
       digitalWrite(11, LOW);  //turn LED off
       lcd.setCursor(0,0);
